@@ -65,6 +65,9 @@
     },
     "@nx/angular:component": {
       "style": "css"
+    },
+    "@nx/react": {
+      "library": {}
     }
   },
   "nxCloudAccessToken": "NDNmZTUzMjYtOTUxNy00ZjhiLWJlZTMtYTFkM2ZiNDg5OGI3fHJlYWQtd3JpdGU=",

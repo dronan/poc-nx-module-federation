@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@org/button": ["libs/button/src/index.ts"],
+      "@org/loader": ["libs/loader/src/index.ts"],
       "account-remote/Routes": [
         "apps/account-remote/src/app/remote-entry/entry.routes.ts"
       ]
