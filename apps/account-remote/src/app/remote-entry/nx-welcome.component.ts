@@ -1,11 +1,11 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { ButtonComponent } from '@org/button';
 @Component({
   selector: 'app-nx-welcome',
   standalone: true,
-  imports: [CommonModule],
-  template: `Welcome to the Nx Account Remote App!`,
+  imports: [CommonModule, ButtonComponent],
+  template: `<lib-button>Here comes from Remote App!</lib-button>`,
   styles: [],
   encapsulation: ViewEncapsulation.None,
 })
