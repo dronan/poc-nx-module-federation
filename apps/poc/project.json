@@ -8,12 +8,16 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
-        "outputPath": "dist/apps/poc",
+        "outputPath": "dist/poc/browser",
         "index": "apps/poc/src/index.html",
         "main": "apps/poc/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/poc/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -22,7 +26,9 @@
             "input": "apps/poc/public"
           }
         ],
-        "styles": ["apps/poc/src/styles.scss"],
+        "styles": [
+          "apps/poc/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -75,10 +81,51 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/poc/jest.config.ts"
       }
+    },
+    "server": {
+      "executor": "@angular-devkit/build-angular:server",
+      "options": {
+        "outputPath": "dist/poc/server",
+        "main": "apps/poc/src/main.server.ts",
+        "tsConfig": "apps/poc/tsconfig.server.json",
+        "inlineStyleLanguage": "scss"
+      },
+      "configurations": {
+        "production": {
+          "outputHashing": "media"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "sourceMap": true,
+          "extractLicenses": false,
+          "vendorChunk": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "app-shell": {
+      "executor": "@angular-devkit/build-angular:app-shell",
+      "options": {
+        "route": "shell"
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "poc:build:production",
+          "serverTarget": "poc:server:production"
+        },
+        "development": {
+          "browserTarget": "poc:build:development",
+          "serverTarget": "poc:server:development"
+        }
+      },
+      "defaultConfiguration": "production"
     }
   }
 }
