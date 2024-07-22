@@ -41,6 +41,15 @@
           "codeCoverage": true
         }
       }
+    },
+    "@nx/angular:webpack-browser": {
+      "inputs": [
+        "production",
+        "^production",
+        {
+          "env": "NX_MF_DEV_REMOTES"
+        }
+      ]
     }
   },
   "generators": {
@@ -51,5 +60,19 @@
       "unitTestRunner": "jest"
     }
   },
-  "nxCloudAccessToken": "NDNmZTUzMjYtOTUxNy00ZjhiLWJlZTMtYTFkM2ZiNDg5OGI3fHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "NDNmZTUzMjYtOTUxNy00ZjhiLWJlZTMtYTFkM2ZiNDg5OGI3fHJlYWQtd3JpdGU=",
+  "plugins": [
+    {
+      "plugin": "@nx/playwright/plugin",
+      "options": {
+        "targetName": "e2e"
+      }
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "eslint:lint"
+      }
+    }
+  ]
 }
